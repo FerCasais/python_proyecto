@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from proyecto_casais.views import saludar_con_fecha
+from proyecto_casais.views import saludar_con_html
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('saludo/', saludar_con_fecha),
+    path('html-base/', saludar_con_html)
 ]
