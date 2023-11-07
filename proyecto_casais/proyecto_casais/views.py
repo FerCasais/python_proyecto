@@ -22,6 +22,6 @@ def saludar_con_html(request):
     }
     Http_Response= render(
         request=request,
-        template_name='base.html',
+        template_name='inicio.html',
         context=contexto)
     return Http_Response

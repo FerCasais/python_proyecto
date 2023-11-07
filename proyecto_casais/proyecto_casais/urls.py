@@ -19,9 +19,13 @@ from django.urls import path
 
 from proyecto_casais.views import saludar_con_fecha
 from proyecto_casais.views import saludar_con_html
+from control_studio.views import listar_estudiantes
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludar_con_fecha),
-    path('html-base/', saludar_con_html)
+    path('', saludar_con_html),
+     path('estudiantes/', listar_estudiantes),
+ 
 ]
