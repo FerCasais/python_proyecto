@@ -23,11 +23,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Cursos</a>
-                <a class="navbar-brand" href="#!">Comisión</a>
+                <a class="navbar-brand" href="{% url 'lista_cursos'%}">Cursos</a>
+                <a class="navbar-brand" href="{% url 'crearCurso'%}">Agregar Cursos</a>
                 <a class="navbar-brand" href="#!">Profesor</a>
-                <a class="navbar-brand" href="#!">Estudiantes</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="{% url 'lista_estudiantes'%}">Estudiantes</a>
+                <a class="btn btn-primary" href="{% url 'inicio'%}">Inicio</a>
             </div>
         </nav>
         <!-- Masthead-->

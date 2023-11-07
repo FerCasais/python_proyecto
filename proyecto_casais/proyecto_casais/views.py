@@ -3,6 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
 def saludar(request):
     saludo= "hola chicos"
     respuesta_http = HttpResponse(saludo)
@@ -25,3 +26,5 @@ def saludar_con_html(request):
         template_name='inicio.html',
         context=contexto)
     return Http_Response
+
+

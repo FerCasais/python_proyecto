@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Coder {{comision}}</title>
-</head>
-<body>
-    <h1>Bienvenidos! los saluda el profesor {{profesor}}</h1>
+{% extends "base.html" %}
+
+{% block title %}
+<title>APP Studio Lista Estudiantes</title>
+{% endblock title %}
+
+{% block inicio %}
+
+
+
+    <h1 style="color: yellow;">Bienvenidos! los saluda el profesor {{profesor}}</h1>
     <h3>Alumnos inscriptos:</h3>
     <ul>
         {% for estudiante in estudiantes %}
@@ -22,5 +24,4 @@
         {% endfor %}
     </ul>
     
-</body>
-</html>
+    {% endblock inicio %}
