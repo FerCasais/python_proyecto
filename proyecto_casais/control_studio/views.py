@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 
-from control_studio.models import Estudiante, Curso
+from control_studio.models import Estudiante, Curso, Profesor
 
 from django.db.models import Q
 
-from control_studio.forms import CursoFormulario
+from control_studio.forms import CursoFormulario, EstudianteFormulario, ProfesorFormulario
 
 
 
@@ -17,14 +17,7 @@ from control_studio.forms import CursoFormulario
 
 def listar_estudiantes(request):
     contexto = {
-        "profesor": "Fernando",
-        "estudiantes": [
-            {"nombre": "Florencia", "apellido": "Lopez", "nota": 4},
-            {"nombre": "Vigo", "apellido": "Fernandez", "nota": 10},
-            {"nombre": "Azul", "apellido": "Langer", "nota": 6},
-            {"nombre": "Pedro", "apellido": "Miranda", "nota": 8},
-        ],
-
+            "estudiantes": Estudiante.objects.all(),
     }
     http_response = render(
         request=request,
@@ -46,6 +39,18 @@ def listar_cursos(request):
     )
     return http_response
 
+def listar_profesores(request):
+    contexto = {
+            "profesores": Profesor.objects.all(),
+    }
+    http_response = render(
+        request=request,
+        template_name="lista_profesores.html",
+        context=contexto,
+    )
+    return http_response
+
+
 def crearCurso(request):
    if request.method == "POST":
        data = request.POST
@@ -59,6 +64,18 @@ def crearCurso(request):
            template_name='crear_curso.html',
        )
    
+def crearProfesor(request):
+   if request.method == "POST":
+       data = request.POST
+       profesor = Profesor(nombre=data['nombre'], apellido=data['apellido'])
+       profesor.save()
+       url_exitosa = reverse('lista_profesores')
+       return redirect(url_exitosa)
+   else:  # GET
+       return render(
+           request=request,
+           template_name='crear_profesor.html',
+       )
    
 def buscar_cursos(request):
     if request.method == "POST":
@@ -80,3 +97,21 @@ def buscar_cursos(request):
             context=contexto,
         )
         return http_response
+    
+   
+def crearEstudiante(request):
+   if request.method == "POST":
+       data = request.POST
+       estudiante = Estudiante(nombre=data['nombre'], apellido=data['apellido'])
+       estudiante.save()
+       url_exitosa = reverse('lista_estudiantes')
+       return redirect(url_exitosa)
+   else:  # GET
+       return render(
+           request=request,
+           template_name='crear_estudiante.html',
+       )
+   
+
+   
+   

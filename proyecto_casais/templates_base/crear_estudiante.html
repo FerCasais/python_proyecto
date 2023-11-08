@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+
+{% block inicio %}
+<form method="post">
+ {% csrf_token %}
+ <p>Nombre del curso</p>
+ <input type="text" name="nombre">
+ <p>Comision</p>
+ <input type="text" name="apellido" >
+ <input type="submit" value="Enviar">
+</form>
+{% endblock inicio %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>APP Studio Lista Estudiantes</title>
+<title>APP Studio Lista Profesores</title>
 {% endblock title %}
 
 {% block inicio %}
@@ -10,12 +10,12 @@
 
 
 <h1 style="color:orange;">
-   Alumnos inscriptos:
+    Nuestros profes:
   </h1>
     <ul>
-        {% for estudiante in estudiantes %}
+        {% for profesor in profesores %}
         <li>
-            {{estudiante.apellido}}, {{estudiante.nombre}},
+            {{profesor.apellido}}, {{profesor.nombre}},
            
 
         </li>
@@ -25,4 +25,3 @@
     {% endblock inicio %}
 
   
-
